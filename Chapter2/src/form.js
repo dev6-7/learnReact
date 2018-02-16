@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { render } from "react-dom";
-import MyComp from './MyComp'
+import Article from './Article'
 import './form.less'
 
 render(
-    <div><MyComp h1="React" text="The best view-component builder"/></div>,
+    <Article h2="Оставьте нам сообщение"/>,
     document.getElementById('formRoot')
 );
 
@@ -23,17 +23,6 @@ class App extends Component {
                 <button onClick={() => alert(this.props.text)}>
                     Click me!
                 </button>
-            </div>
-        );
-    }
-}
-
-class ArticleComponent extends Component {
-    render(){
-        return (
-            <div id="article">
-                <h1>{this.props.h1}</h1>
-                <p>{this.props.text}</p>
             </div>
         );
     }
