@@ -1,0 +1,26 @@
+/*топик про различия сас и лес https://habrahabr.ru/post/144309/*/
+$greyColor: lightgrey;
+$greenColor: green;
+
+body {
+  margin: 0px;
+
+  #sendForm {
+    padding: 10px 0px 10px 0px;
+    background-color: lightgrey;
+
+    input{
+      color: $greenColor;
+    }
+
+    #message{
+      weight: 489px;
+    }
+
+    #formHeader {
+      font-weight: bold;
+      color: black;
+      font-size: 16pt;
+    }
+  }
+}

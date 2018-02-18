@@ -46,6 +46,13 @@ module.exports = {
                     use: ['css-loader', 'autoprefixer-loader', 'less-loader?noIeCompat']
                 })
             },
+            {
+                test: /\.scss$/i,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'autoprefixer-loader', 'sass-loader']
+                })
+            },
         ]
     },
 }
