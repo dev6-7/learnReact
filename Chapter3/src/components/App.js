@@ -10,14 +10,14 @@ export class App extends Component {
     render () {
         return (
             <div>
-                <h2>Обычное поле ввода</h2>
+                {/*<h2>Обычное поле ввода</h2>
                 <TextInput/>
 
                 <h2>Обновление по изменению state</h2>
                 <TimerA name="A"/>
 
                 <h2>Проброс хэндлера пропсом</h2>
-                <HandlerToProps/>
+                <HandlerToProps/>*/}
 
                 <h2>Калькулятор</h2>
                 <Calc style="background-color: red"/>

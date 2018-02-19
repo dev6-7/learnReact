@@ -27,11 +27,12 @@ export class Calc extends Component {
     /*отрисовка*/
     render () {
         const { a, b, action } = this.state
-        const {style} = this.props
+        /*style не передается нифига и ошибка из-за этого*/
+        const {style} = this.props.style;
         const {...args} = this.props
 
         return (
-            <table className="calc">
+            <table className="calc" style={style}>
                 <tbody>
                 <tr>
                     <td colSpan="4" className="label-text">&nbsp;{a}</td>
