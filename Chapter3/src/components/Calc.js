@@ -5,9 +5,9 @@ import {Btn} from './Btn'
 export class Calc extends Component {
 
     /*валидация на уровне dev (на отъебись), в проде не используется*/
-    static propTypes = {
+    /*static propTypes = {
         style: PropTypes.string.isRequired
-    }
+    }*/
 
     constructor(props, context){
         super(props, context)
@@ -31,7 +31,7 @@ export class Calc extends Component {
         const {...args} = this.props
 
         return (
-            <table className="calc" style={style}>
+            <table className="calc">
                 <tbody>
                 <tr>
                     <td colSpan="4" className="label-text">&nbsp;{a}</td>
@@ -172,7 +172,9 @@ export class Calc extends Component {
     /*вызывается после изменения пропсов (this.props, nextProps)*/
     componentWillReceiveProps(nextProps) {}
     /*нужно компонент ререндерить или нет(также это влияет и на дочек)*/
-    shouldComponentUpdate(nextProps, nextState) {}
+    shouldComponentUpdate(nextProps, nextState) {
+        return true;
+    }
     /*если shouldComponentUpdate сказал да, то инициативу перехватывает этот метод*/
     componentWillUpdate(nextProps, nextState) {}
     /*ререндер компонента, предыдущих параметров в this уже нет, они передаются в метод*/

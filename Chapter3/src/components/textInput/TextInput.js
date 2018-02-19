@@ -13,7 +13,7 @@ export class TextInput extends Component {
 
     render () {
         return (
-            <input type="text" value={this.state.text} onChange={this.onChangeHandler} style={style} />
+            <input type="text" value={this.state.text} onChange={this.onChangeHandler}/>
         )
     }
 

@@ -25,8 +25,9 @@ export class Btn extends PureComponent {
         )
     }
 
-    /*компонент тупой и можно его не ререндерить (также это влияет и на дочек)*/
-    shouldComponentUpdate(nextProps, nextState){
+    /*компонент тупой и можно его не ререндерить (также это влияет и на дочек), для пуркомпонента не нужен
+    * потому что он сам себя не может ререндерить, только извне*/
+    /*shouldComponentUpdate(nextProps, nextState){
         return false
-    }
+    }*/
 }
