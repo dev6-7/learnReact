@@ -27,8 +27,9 @@ export class Calc extends Component {
     /*отрисовка*/
     render () {
         const { a, b, action } = this.state
-        /*style не передается нифига и ошибка из-за этого*/
-        const {style} = this.props.style;
+        const {style} = this.props;
+        /*почему-то вот так не работает нифига*/
+        /*const {style} = this.props.style;*/
         const {...args} = this.props
 
         return (

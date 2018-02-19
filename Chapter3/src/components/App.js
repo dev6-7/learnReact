@@ -20,7 +20,7 @@ export class App extends Component {
                 <HandlerToProps/>*/}
 
                 <h2>Калькулятор</h2>
-                <Calc style="background-color: red"/>
+                <Calc style={{backgroundColor: 'red'}}/>
             </div>
         )
     }
