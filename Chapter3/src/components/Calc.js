@@ -33,7 +33,7 @@ export class Calc extends Component {
         const {...args} = this.props
 
         return (
-            <table className="calc" style={style}>
+            <table className="calc" {...args}>
                 <tbody>
                 <tr>
                     <td colSpan="4" className="label-text">&nbsp;{a}</td>
