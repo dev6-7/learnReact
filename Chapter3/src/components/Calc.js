@@ -98,7 +98,13 @@ export class Calc extends Component {
                 if (a) {
                     // Для выполнения последовательных операций мы должны применить последнюю операцию
                     // и отобразить только что нажатую
-                    b = (new Function(`return ${a} ${action || btnAction} ${b}`))()
+                    if (a != '0' && b == '0' && action == '/') {
+                        this.setState ({error: 'На 0 не делим же'})
+                        return
+                    } else {
+                        b = (new Function(`return ${a} ${action || btnAction} ${b}`))()
+                        this.setState({error: undefined})
+                    }
                 }
                 /*этот момент видимо для перерисовки*/
                 this.setState({
@@ -126,6 +132,7 @@ export class Calc extends Component {
                     action: undefined,
                     /*когда просто b то это null что ли?*/
                     b,
+                    error: undefined
                 })
                 return
             case 'C':
