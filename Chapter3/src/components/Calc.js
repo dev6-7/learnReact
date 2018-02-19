@@ -18,7 +18,8 @@ export class Calc extends Component {
     state = {
         a: undefined,
         action: undefined,
-        b: '0'
+        b: '0',
+        error: ''
     }
 
     /*Методы жизненного цикла компонента*/
@@ -26,56 +27,62 @@ export class Calc extends Component {
     componentWillMount() {}
     /*отрисовка*/
     render () {
-        const { a, b, action } = this.state
+        const { a, b, action, error } = this.state
         const {style} = this.props;
         /*почему-то вот так не работает нифига*/
         /*const {style} = this.props.style;*/
         const {...args} = this.props
 
         return (
-            <table className="calc" style={style}>
-                <tbody>
-                <tr>
-                    <td colSpan="4" className="label-text">&nbsp;{a}</td>
-                </tr>
-                <tr>
-                    <td colSpan="4" className="label-text">&nbsp;{action}</td>
-                </tr>
-                <tr>
-                    <td colSpan="4">
-                        <input id="digit" value={b} className="input-digit" onKeyDown={this.keyHandler} onChange={this.typingHandler}/>
-                    </td>
-                </tr>
+            <div>
+                <h2>Калькулятор</h2>
+                <table className="calc" style={style}>
+                    <tbody>
+                    <tr>
+                        <td colSpan="4" className="label-error-text">&nbsp;{error}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="4" className="label-text">&nbsp;{a}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="4" className="label-text">&nbsp;{action}</td>
+                    </tr>
+                    <tr>
+                        <td colSpan="4">
+                            <input id="digit" value={b} className="input-digit" onKeyDown={this.keyHandler} onChange={this.typingHandler}/>
+                        </td>
+                    </tr>
 
-                <tr>
-                    <td><Btn action="1" handler={this.btnHandler}/></td>
-                    <td><Btn action="2" handler={this.btnHandler}/></td>
-                    <td><Btn action="3" handler={this.btnHandler}/></td>
-                    <td><Btn action="C" handler={this.btnHandler} className="action"/></td>
-                </tr>
+                    <tr>
+                        <td><Btn action="1" handler={this.btnHandler}/></td>
+                        <td><Btn action="2" handler={this.btnHandler}/></td>
+                        <td><Btn action="3" handler={this.btnHandler}/></td>
+                        <td><Btn action="C" handler={this.btnHandler} className="action"/></td>
+                    </tr>
 
-                <tr>
-                    <td><Btn action="4" handler={this.btnHandler}/></td>
-                    <td><Btn action="5" handler={this.btnHandler}/></td>
-                    <td><Btn action="6" handler={this.btnHandler}/></td>
-                    <td><Btn action="+" handler={this.btnHandler} className="action"/></td>
-                </tr>
+                    <tr>
+                        <td><Btn action="4" handler={this.btnHandler}/></td>
+                        <td><Btn action="5" handler={this.btnHandler}/></td>
+                        <td><Btn action="6" handler={this.btnHandler}/></td>
+                        <td><Btn action="+" handler={this.btnHandler} className="action"/></td>
+                    </tr>
 
-                <tr>
-                    <td><Btn action="7" handler={this.btnHandler}/></td>
-                    <td><Btn action="8" handler={this.btnHandler}/></td>
-                    <td><Btn action="9" handler={this.btnHandler}/></td>
-                    <td><Btn action="-" handler={this.btnHandler} className="action"/></td>
-                </tr>
+                    <tr>
+                        <td><Btn action="7" handler={this.btnHandler}/></td>
+                        <td><Btn action="8" handler={this.btnHandler}/></td>
+                        <td><Btn action="9" handler={this.btnHandler}/></td>
+                        <td><Btn action="-" handler={this.btnHandler} className="action"/></td>
+                    </tr>
 
-                <tr>
-                    <td><Btn action="*" handler={this.btnHandler} className="action"/></td>
-                    <td><Btn action="0" handler={this.btnHandler}/></td>
-                    <td><Btn action="/" handler={this.btnHandler} className="action"/></td>
-                    <td><Btn action="=" handler={this.btnHandler} className="action"/></td>
-                </tr>
-                </tbody>
-            </table>
+                    <tr>
+                        <td><Btn action="*" handler={this.btnHandler} className="action"/></td>
+                        <td><Btn action="0" handler={this.btnHandler}/></td>
+                        <td><Btn action="/" handler={this.btnHandler} className="action"/></td>
+                        <td><Btn action="=" handler={this.btnHandler} className="action"/></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         )
     }
 
@@ -88,7 +95,6 @@ export class Calc extends Component {
             case '-':
             case '*':
             case '/':
-                /*а я вот не вкурил это т.е. при всех тех кейсах которые сверху выполняется вот это вот иф?*/
                 if (a) {
                     // Для выполнения последовательных операций мы должны применить последнюю операцию
                     // и отобразить только что нажатую

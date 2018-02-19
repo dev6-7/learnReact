@@ -6,11 +6,11 @@ const isProd = false
 
 module.exports = {
     entry: {
-        app: ['babel-polyfill', './components/main.js']
+        app: ['babel-polyfill', './src/components/main.js']
     },
 
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, './src/build'),
         filename: `[name].js`,
     },
 
