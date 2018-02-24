@@ -7,6 +7,7 @@ let store = {
     ]
 }
 
+/*Чистая функция та, которая не затрагивает внешние объекты и ресурсы, работает только с входными параметрами*/
 function addElement(store, id, theme, description, date, complete = false){
     store = Object.assign({}, store)
     store.list = store.list.slice(1, 3);

@@ -9,5 +9,14 @@ let store = {
 }
 
 store.list.push({id: 3, theme: "CSS3", description: "Complete chapter5_3", date: new Date(), complete: false})
+store.list.push({id: 4, theme: "CSS5", description: "Complete chapter5_4", date: new Date(), complete: false})
 
 console.log(JSON.stringify(store.list));
+
+let index = store.list.findIndex(el => el.id ==1)
+console.log(index);
+store.list.splice(0, 1);
+console.log(JSON.stringify(store.list));
+
+
+
