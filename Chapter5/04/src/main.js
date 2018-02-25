@@ -82,3 +82,7 @@ console.log('DELETE ELEMENT')
 const deleteAction = deleteElement(2);
 store.dispath(deleteAction)
 console.log(JSON.stringify(store, null, 4))
+
+/*строчка оказывается очень нужна для того что бы потом в другом файле импортить этот класс*/
+/*из тучи гайдов, помог этот http://unitjs.com/guide/mocha.html*/
+module.exports = Store;
