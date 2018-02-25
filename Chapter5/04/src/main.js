@@ -1,5 +1,4 @@
-// Плюсы: можем насоздавать много сторов, экшены для действий над данными, модель в каком то виде
-// Минусы: сложно понять и принять концепцию экшенов и редъюсеров, пного писанины с AC и редъюсерами
+// работа через редьюсеры, над привыкнуть и свыкнуться
 
 const ADD_ITEM = 'ADD_ITEM'
 const DELETE_ITEM = 'DELETE_ITEM'
@@ -58,31 +57,47 @@ function deleteElement(id) {
 }
 
 /*кейс добавления*/
-console.log('ADD ELEMENT')
+console.log('ADD 3 ELEMENT')
 const store = new Store({
-    list: [
-        { id: 1, text: 'Yo!', done: false },
-        { id: 2, text: 'Vasiliy', done: false },
-    ]
+    list: []
 })
-const action = addElement(3, 'JAVA 10', false);
-store.dispath(action)
-console.log(JSON.stringify(store, null, 4))
+const add1 = addElement(1, 'JAVA 5', false);
+const add2 = addElement(2, 'JAVA 6', false);
+const add3 = addElement(3, 'JAVA 7', false);
+store.dispath(add1)
+store.dispath(add2)
+store.dispath(add3)
+/*console.log(JSON.stringify(store, null, 4))*/
 
 /*кейс изменения статуса*/
-console.log('CHANGE STATUS')
-const addJava7 = addElement(4, 'JAVA 7', false);
-store.dispath(addJava7)
-const changeAction = changeStatus(4, true);
-store.dispath(changeAction)
-console.log(JSON.stringify(store, null, 4))
+console.log('CHANGE 2 STATUS')
+const change1 = changeStatus(1, true);
+const change2 = changeStatus(3, true);
+store.dispath(change1)
+store.dispath(change2)
+/*console.log(JSON.stringify(store, null, 4))*/
 
-/*кейс удаления Василия*/
-console.log('DELETE ELEMENT')
-const deleteAction = deleteElement(2);
+/*кейс удаления*/
+console.log('DELETE 1 ELEMENT')
+const deleteAction = deleteElement(3);
 store.dispath(deleteAction)
+/*console.log(JSON.stringify(store, null, 4))*/
+
+console.log('ADD 1 ELEMENT')
+const add4 = addElement(4, 'JAVA 8', false);
+store.dispath(add4)
+
+console.log('DELETE 1 ELEMENT')
+const del1 = deleteElement(1);
+const del2 = deleteElement(2);
+const del4 = deleteElement(4);
+store.dispath(del1)
+store.dispath(del2)
+store.dispath(del4)
+
 console.log(JSON.stringify(store, null, 4))
 
+/*TODO спросить у Кости или загуглить wtf*/
 /*строчка оказывается очень нужна для того что бы потом в другом файле импортить этот класс*/
 /*из тучи гайдов, помог этот http://unitjs.com/guide/mocha.html*/
 module.exports = Store;
