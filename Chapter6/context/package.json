@@ -1,0 +1,11 @@
+{
+  "name": "training",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "webpack",
+    "build-w": "webpack --watch"
+  },
+  "dependencies": {
+    "webpack": "^3.11.0"
+  }
+}
