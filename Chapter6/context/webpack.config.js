@@ -1,14 +1,13 @@
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-
 module.exports = {
     entry: {
         app: ['babel-polyfill', './src/main.js']
     },
 
     output: {
-        path: path.join(__dirname, 'build'),
+        path: path.join(__dirname, './src/build'),
         filename: `[name].js`,
     },
 
